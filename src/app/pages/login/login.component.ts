@@ -6,6 +6,11 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 
+interface LoginForm {
+  email: FormControl,
+  password: FormControl,
+}
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -17,7 +22,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  loginForm!: FormGroup;
+  loginForm!: FormGroup<LoginForm>;
 
   constructor(private router: Router, private loginService: LoginService, private toastService: ToastrService) {
     this.loginForm = new FormGroup({
